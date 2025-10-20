@@ -1,0 +1,413 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* TRANG 1 */
+.page1 {
+  height: 100vh;
+  background: radial-gradient(circle at top left, #ffd1dc, #ff9eb5, #ff7da1);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  animation: bgPulse 6s infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: fadeInDown 2s ease;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  animation: fadeInUp 3s ease;
+}
+
+.btn-magic {
+  position: relative;
+  font-size: clamp(1.2rem, 4vw, 2rem); /* Responsive: nhỏ trên điện thoại, to trên PC */
+  padding: 20px 60px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(270deg, #ff9eb5, #ff69b4, #ffb6c1, #ffd6e9);
+  background-size: 600% 600%;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  animation: gradientFlow 5s ease infinite, pulseButton 2s infinite;
+  overflow: hidden;
+}
+
+.btn-magic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+}
+
+/* Hiệu ứng gradient chuyển màu */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Nhịp tim nhẹ */
+@keyframes pulseButton {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Hiệu ứng chữ lấp lánh */
+.sparkle {
+  display: inline-block;
+  background: linear-gradient(90deg, #fff, #ffe4f1, #fff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Hiệu ứng ánh sáng chạy ngang qua nút */
+.btn-magic::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { left: -75%; }
+  50% { left: 125%; }
+  100% { left: 125%; }
+}
+/* Ảnh treo */
+.photo-frame {
+  position: absolute;
+  width: 120px;
+  border: 5px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  animation: swing 4s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.frame1 { top: 10%; left: 10%; animation-delay: 0s; }
+.frame2 { top: 20%; right: 15%; animation-delay: 1s; }
+.frame3 { bottom: 15%; left: 20%; animation-delay: 2s; }
+
+@keyframes swing {
+  0%,100% { transform: rotate(3deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(10px); }
+}
+
+/* TRANG 2 */
+.page2 {
+  background: linear-gradient(135deg, #ffc0cb, #ff91a4, #ff6f91);
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wish-card {
+  background: rgba(255,255,255,0.9);
+  color: #d63384;
+  border-radius: 25px;
+  max-width: 550px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.8);
+  animation: popUp 2s ease;
+}
+@keyframes popUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* TRÁI TIM BAY */
+.floating-hearts {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+.heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.5rem;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+body.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Khi trang mới vừa load thì mờ dần hiện ra */
+body {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+/* ===== NÚT CÁCH ĐIỆU - TONE NỔI BẬT ===== */
+.btn-fancy {
+  position: relative;
+  display: inline-block;
+  font-family: 'Great Vibes', cursive;  /* Font chữ mềm mại */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  padding: 25px 80px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+  background: linear-gradient(135deg, #ff006e, #ff69b4, #ff85c1, #ffb6c1, #ffe4f1);
+  background-size: 300% 300%;
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.8);
+  animation: btnFlow 6s ease infinite, pulse 2s infinite;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-fancy:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 1);
+}
+
+/* Gradient chuyển động */
+@keyframes btnFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Nhịp tim nhẹ */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Ánh sáng quét qua */
+.btn-fancy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { left: -80%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* Chữ bên trong có hiệu ứng lấp lánh */
+.btn-fancy span {
+  display: inline-block;
+  background: linear-gradient(90deg, #fff, #ffe4f1, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkle 3s infinite linear;
+}
+@keyframes sparkle {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Đảm bảo hiển thị tốt trên di động */
+@media (max-width: 600px) {
+  .btn-fancy {
+    padding: 18px 50px;
+    font-size: 1.8rem;
+  }
+}
+/* Nền hồng cho trang 2 */
+.page2 {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffc0cb, #ff99b9, #ff7da1);
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Khu vực treo ảnh có chiều cao để nền không “mất” */
+.wall {
+  position: relative;
+  min-height: 300px;      /* có thể tăng/giảm tuỳ ảnh */
+  margin-top: 30px;
+  padding-bottom: 60px;
+}
+
+/* Nút fancy vẫn nổi bật và nằm giữa vì có div .d-flex .justify-content-center */
+.btn-fancy { display: inline-block; }  /* đảm bảo căn giữa đẹp */
+/* ===== WALL HANGING STYLE ===== */
+.wall {
+  position: relative;
+  min-height: 550px;
+  margin-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* Cố định kích thước ảnh nhỏ */
+.hang {
+  position: absolute;
+  width: 250px;   /* cố định khung nhỏ gọn */
+  height: 120px;
+  margin-top: 30px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform-origin: top center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Ảnh bên trong */
+.hang img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 5px solid #fff;
+}
+
+
+/* Caption */
+.hang figcaption {
+  text-align: center;
+  color: #c2185b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-top: 5px;
+}
+
+/* Móc treo (ở trên ảnh) */
+.hook {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ffdee9, #ff91a4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Dây treo */
+.hang::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #fddbe8, #ff82a9);
+}
+.hang::after {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ff006e);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Vị trí từng khung (lệch nhẹ tự nhiên) */
+.hang:nth-of-type(1) { left: 8%;  top: 100px; transform: rotate(-4deg); }
+.hang:nth-of-type(2) { left: 40%; top: 60px;  transform: rotate(3deg); }
+.hang:nth-of-type(3) { right: 8%; top: 120px; transform: rotate(-3deg); }
+
+/* Hover “đu đưa” nhẹ */
+.hang:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+/* Giữ nền hồng toàn trang */
+.page2 {
+  background: linear-gradient(135deg, #ffc0cb, #ff9eb5, #ff7da1);
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .wall { min-height: 750px; }
+  .hang:nth-of-type(1) { left: 50%; transform: translateX(-50%) rotate(-3deg); top: 60px; }
+  .hang:nth-of-type(2) { left: 20%; top: 300px; transform: rotate(2deg); }
+  .hang:nth-of-type(3) { right: 20%; top: 500px; transform: rotate(-2deg); }
+}
+/* ✅ Cho cuộn toàn trang mặc định */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;   /* mở cuộn dọc */
+}
+
+/* ✅ Trang 1 vẫn không cần cuộn */
+.page1 {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ✅ Trang 2 & 3 cho phép cuộn (điện thoại cần) */
+.page2, .page3 {
+  /* dùng dvh/svh để fix iOS Safari thanh URL thay đổi chiều cao */
+  min-height: 100dvh;       /* trình duyệt mới */
+  min-height: 100svh;       /* Safari mới */
+  min-height: 100vh;        /* fallback */
+  overflow-y: auto;
+}
+
+/* ✅ Trái tim bay không chặn thao tác chạm (đảm bảo không khóa cuộn) */
+.floating-hearts {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+}
+
+
+

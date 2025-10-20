@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Chúc 20/10 💐</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font chữ mềm mại, viết tay lãng mạn -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&display=swap&subset=vietnamese" rel="stylesheet">
+</head>
+
+<body class="page3 text-center d-flex flex-column justify-content-center align-items-center">
+
+  <div class="card wish-card p-4 shadow-lg">
+    <h2 class="wish-title">🌸 Lời chúc gửi đến mẹ 🌸</h2>
+    <p class="wish-text mt-3">
+      Chúc mẹ luôn rạng rỡ, hạnh phúc, và thành công 💗<br>
+      Mong rằng ngày nào của bạn cũng tràn đầy niềm vui và yêu thương! 🌹<br>
+      <strong>— Happy Vietnamese Women’s Day —</strong>
+    </p>
+
+    <div class="image-frame mt-3 mx-auto">
+      <img src="images/image.png" alt="Thiệp 20/10" class="img-fluid rounded-4">
+    </div>
+  </div>
+
+  <div class="floating-hearts"></div>
+
+  <script src="script.js"></script>
+
+  <style>
+    /* === Nền hồng nhẹ nhàng === */
+    .page3 {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffc0cb, #ff9eb5, #ff7da1);
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* === Khung thiệp chính === */
+    .wish-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      max-width: 550px;
+      color: #d63384;
+      box-shadow: 0 0 25px rgba(255, 192, 203, 0.8);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* === Tiêu đề font viết tay mềm mại === */
+    .wish-title {
+      font-family: 'Dancing Script', 'Great Vibes', cursive;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      background: linear-gradient(180deg, #b72c58, #e45584, #ffacc6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 6px 18px rgba(229, 85, 132, 0.3);
+    }
+
+    /* === Nội dung lời chúc === */
+    .wish-text {
+      font-family: 'Great Vibes', 'Dancing Script', cursive;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      line-height: 1.5;
+      color: #b02a61;
+      text-shadow: 0 4px 10px rgba(255, 192, 203, 0.4);
+    }
+
+    /* === Khung ảnh thiệp === */
+    .image-frame {
+      display: inline-block;
+      padding: 8px;
+      border: 6px solid #fff;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #ffeef2, #ffd3df);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .image-frame:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    /* === Trái tim bay === */
+    .floating-hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .heart {
+      position: absolute;
+      bottom: 0;
+      font-size: 1.5rem;
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+
+</body>
+</html>
